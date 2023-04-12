@@ -43,7 +43,8 @@
         </el-form-item>
       </el-tooltip>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
+      <el-button :loading="loading" type="primary" style="width:50%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
+      <el-button type="primary" style="width:47%;" @click.native.prevent="handleLogon">去注册</el-button>
     </el-form>
 
     <el-dialog title="Or connect with" :visible.sync="showDialog">
@@ -152,6 +153,9 @@ export default {
           return false
         }
       })
+    },
+    handleLogon() {
+      this.$router.push({ path: '/auth-redirect' })
     },
     getOtherQuery(query) {
       return Object.keys(query).reduce((acc, cur) => {
